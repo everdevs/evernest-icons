@@ -74,7 +74,7 @@ const writePaths = [
 	});
 
 	// Create JavaScript
-	writeFile(`./icons/path-d.js`, `module.exports = ${JSON.stringify(pathD, null, 4)}`).catch(err => {
+	writeFile(`./icons/path-d.js`, `exports.icons = ${JSON.stringify(pathD, null, 4)}`).catch(err => {
 		console.error(err)
 	});
 
@@ -85,7 +85,7 @@ const writePaths = [
 		`interface Icons ${JSON.stringify(types, null, 4)
 			.replace(/"string"(,)?/g, "string;")
 			.replace(/}(,)?/g, "};")
-			.replace(/^};$/gm, "}")}\ndeclare const icons: Icons;\nexport default icons;`
+			.replace(/^};$/gm, "}")}\ndeclare const icons: Icons;\nexport {icons};`
 	).catch(err => {
 		console.error(err)
 	});

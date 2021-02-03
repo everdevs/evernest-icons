@@ -7,14 +7,14 @@ interface Icons {
         "close": string;
         "delete": string;
         "info": string;
-        "list": string;
         "location": string;
+        "list": string;
         "mail": string;
         "map": string;
         "money": string;
         "mobileDevice": string;
-        "person": string;
         "onboarding": string;
+        "person": string;
         "star": string;
     };
     "24": {
@@ -22,8 +22,8 @@ interface Icons {
         "arrowRight": string;
         "chevronDown": string;
         "academy": string;
-        "delete": string;
         "close": string;
+        "delete": string;
         "info": string;
         "location": string;
         "list": string;
@@ -37,15 +37,15 @@ interface Icons {
     };
     "40": {
         "360": string;
-        "academy": string;
         "arrowRight": string;
         "chevronDown": string;
         "close": string;
+        "academy": string;
         "delete": string;
-        "list": string;
-        "info": string;
         "location": string;
+        "info": string;
         "mail": string;
+        "list": string;
         "map": string;
         "mobileDevice": string;
         "money": string;
@@ -55,4 +55,4 @@ interface Icons {
     };
 }
 declare const icons: Icons;
-export default icons;
+export {icons};
