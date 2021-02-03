@@ -1,0 +1,24 @@
+{
+  "name": "evernest-icons",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rimraf ./icons/optimized ./icons/out && mkdirp ./icons/out; mkdirp ./icons/optimized",
+    "svgo": "svgo ./icons/raw/*.svg -o ./icons/optimized --config './.svgo.json'",
+    "rename": "node rename.js",
+    "build": "yarn clean && yarn svgo && yarn rename"
+  },
+  "dependencies": {
+    "svgo": "^1.3.2",
+    "globby": "^11.0.2",
+    "param-case": "^3.0.4",
+    "@sindresorhus/transliterate": "^0.1.1",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.8",
+    "prettier": "^2.2.1"
+  }
+}
