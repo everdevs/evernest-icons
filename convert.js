@@ -74,7 +74,7 @@ const writePaths = [
 	});
 
 	// Create JavaScript
-	writeFile(`./icons/path-d.js`, `exports.default = ${JSON.stringify(pathD, null, 4)}`).catch(err => {
+	writeFile(`./icons/path-d.js`, `module.exports = ${JSON.stringify(pathD, null, 4)}`).catch(err => {
 		console.error(err)
 	});
 
