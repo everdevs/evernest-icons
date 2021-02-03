@@ -85,7 +85,7 @@ const writePaths = [
 		`interface Icons ${JSON.stringify(types, null, 4)
 			.replace(/"string"(,)?/g, "string;")
 			.replace(/}(,)?/g, "};")
-			.replace(/^};$/gm, "}")}\nexport default Icons;`
+			.replace(/^};$/gm, "}")}\ndeclare const icons: Icons;\nexport default icons;`
 	).catch(err => {
 		console.error(err)
 	});
