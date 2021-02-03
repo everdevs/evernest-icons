@@ -19,8 +19,8 @@ interface Icons {
     };
     "24": {
         "360": string;
-        "academy": string;
         "arrowRight": string;
+        "academy": string;
         "chevronDown": string;
         "close": string;
         "delete": string;
@@ -38,12 +38,12 @@ interface Icons {
     "40": {
         "360": string;
         "academy": string;
-        "arrowRight": string;
         "chevronDown": string;
+        "arrowRight": string;
         "close": string;
-        "delete": string;
         "info": string;
         "list": string;
+        "delete": string;
         "location": string;
         "mail": string;
         "map": string;
