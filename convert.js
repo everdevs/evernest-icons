@@ -74,7 +74,7 @@ const writePaths = [
 	});
 
 	// Create JavaScript
-	writeFile(`./icons/path-d.js`, `exports.icons = ${JSON.stringify(pathD, null, 4)}`).catch(err => {
+	writeFile(`./icons/path-d.js`, `'use strict';\nObject.defineProperty(exports, '__esModule', { value: true });\n\nconst icons = ${JSON.stringify(pathD, null, 4)};\nexports.icons = icons\n`).catch(err => {
 		console.error(err)
 	});
 
