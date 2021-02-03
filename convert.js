@@ -37,13 +37,19 @@ const writePaths = [
 			const camelCased = camelCase(transliterate(iconName));
 			const content = await readFile(file, "utf-8");
 			// SVGs should be optimized
-			const optimized = await svgo.optimize(content, { path: file });
-			// Extract the d attribute from the path
-			const [, d] = /d="([\w\d\-\s\.]+)"/.exec(optimized.data);
-			// Add data toobjects
-			types[size][camelCased] = "string";
-			pathD[size][camelCased] = d;
-			files[size][camelCased] = optimized.data;
+			const {data: optimizedSVG} = await svgo.optimize(content, { path: file }).catch(err => {
+				console.error(err)
+			});
+			try {
+				// Extract the d attribute from the path
+				const [, d] = / d="([\w\d\-\s.,]+)"/.exec(optimizedSVG);
+				// Add data to objects
+				types[size][camelCased] = "string";
+				pathD[size][camelCased] = d;
+				files[size][camelCased] = optimizedSVG;
+			} catch(err) {
+				console.error(err)
+			}
 		})
 	);
 	// Write all SVGs as optimized files
