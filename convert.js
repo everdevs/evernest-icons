@@ -33,7 +33,6 @@ const writePaths = [
 		}
 		return 0
 	});
-	console.log(sortedPaths)
 	// Provide objects that will be filled with data
 	const types = { 16: {}, 24: {}, 40: {} };
 	const pathD = { 16: {}, 24: {}, 40: {} };
