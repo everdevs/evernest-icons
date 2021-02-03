@@ -1,8 +1,8 @@
 {
   "name": "evernest-icons",
   "version": "0.1.0",
-  "main": "./icons/path-d.js",
-  "types": "./icons/path-d.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "node convert.js"
   },
