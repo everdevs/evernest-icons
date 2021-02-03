@@ -23,7 +23,17 @@ const writePaths = [
 (async () => {
 	// Delete all writePaths
 	await Promise.all(writePaths.map(writePath => rimraf(writePath)));
-	const paths = await globby(["./icons/in/*.svg"]);
+	const paths = await globby(["./icons/in/*.svg"])
+	const sortedPaths = paths.sort((a, b) => {
+		if (a > b) {
+			return 1
+		}
+		if (a < b) {
+			return -1
+		}
+		return 0
+	});
+	console.log(sortedPaths)
 	// Provide objects that will be filled with data
 	const types = { 16: {}, 24: {}, 40: {} };
 	const pathD = { 16: {}, 24: {}, 40: {} };
@@ -35,11 +45,13 @@ const writePaths = [
 			const [, iconName, size] = /(.*) (\d+)px/.exec(name);
 			// Names should be camelcased
 			const camelCased = camelCase(transliterate(iconName));
-			const content = await readFile(file, "utf-8");
+			const rawSVG = await readFile(file, "utf-8");
 			// SVGs should be optimized
-			const {data: optimizedSVG} = await svgo.optimize(content, { path: file }).catch(err => {
-				console.error(err)
-			});
+			const { data: optimizedSVG } = await svgo
+				.optimize(rawSVG, { path: file })
+				.catch(err => {
+					console.error(err);
+				});
 			try {
 				// Extract the d attribute from the path
 				const [, d] = / d="([\w\d\-\s.,]+)"/.exec(optimizedSVG);
@@ -47,8 +59,8 @@ const writePaths = [
 				types[size][camelCased] = "string";
 				pathD[size][camelCased] = d;
 				files[size][camelCased] = optimizedSVG;
-			} catch(err) {
-				console.error(err)
+			} catch (err) {
+				console.error(err);
 			}
 		})
 	);
@@ -70,12 +82,19 @@ const writePaths = [
 
 	// Create JSON
 	writeFile(`./icons/path-d.json`, JSON.stringify(pathD, null, 4)).catch(err => {
-		console.error(err)
+		console.error(err);
 	});
 
 	// Create JavaScript
-	writeFile(`./icons/path-d.js`, `'use strict';\nObject.defineProperty(exports, '__esModule', { value: true });\n\nconst icons = ${JSON.stringify(pathD, null, 4)};\nexports.icons = icons\n`).catch(err => {
-		console.error(err)
+	writeFile(
+		`./icons/path-d.js`,
+		`'use strict';\nObject.defineProperty(exports, '__esModule', { value: true });\n\nconst icons = ${JSON.stringify(
+			pathD,
+			null,
+			4
+		)};\nexports.icons = icons\n`
+	).catch(err => {
+		console.error(err);
 	});
 
 	// Create Type definitions
@@ -87,6 +106,6 @@ const writePaths = [
 			.replace(/}(,)?/g, "};")
 			.replace(/^};$/gm, "}")}\ndeclare const icons: Icons;\nexport {icons};`
 	).catch(err => {
-		console.error(err)
+		console.error(err);
 	});
 })();
