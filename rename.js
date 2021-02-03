@@ -12,10 +12,9 @@ const { readFile, writeFile } = pify(require("fs"));
 	const pathD = {};
 	await Promise.all(
 		paths.map(async file => {
-			const { base } = path.parse(file);
-			const transliterated = transliterate(base);
-			const paramCased = paramCase(transliterated);
-			const camelCased = camelCase(transliterated);
+			const { name, base } = path.parse(file);
+			const paramCased = paramCase(transliterate(base));
+			const camelCased = camelCase(transliterate(name));
 			const content = await readFile(file, "utf-8");
 			const [, d] = /d="([\w\d\-\s\.]+)"/.exec(content);
 			pathD[camelCased] = d;
