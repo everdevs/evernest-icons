@@ -1,3 +1,3 @@
 {
-  "plugins": [{ "removeAttrs": { "attrs": ["fill", "data-name", "xmlns"] } }]
+  "plugins": [{ "removeAttrs": { "attrs": ["fill", "data-name"] } }]
 }
