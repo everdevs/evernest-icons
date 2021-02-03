@@ -2,7 +2,7 @@
   "name": "evernest-icons",
   "version": "0.1.0",
   "scripts": {
-    "clean": "rimraf ./icons/optimized ./icons/out ./icons/path-d.json && mkdirp ./icons/out; mkdirp ./icons/optimized",
+    "clean": "rimraf ./icons/optimized ./icons/out ./icons/path-d.json ./icons/path-d.js ./icons/path-d.d.ts && mkdirp ./icons/out; mkdirp ./icons/optimized",
     "svgo": "svgo ./icons/raw/*.svg -o ./icons/optimized --config './.svgo.json'",
     "rename": "node rename.js",
     "build": "yarn clean && yarn svgo && yarn rename"
