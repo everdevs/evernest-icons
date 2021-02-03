@@ -2,7 +2,7 @@
   "name": "evernest-icons",
   "version": "0.1.0",
   "scripts": {
-    "clean": "rimraf ./icons/optimized ./icons/out && mkdirp ./icons/out; mkdirp ./icons/optimized",
+    "clean": "rimraf ./icons/optimized ./icons/out ./icons/path-d.json && mkdirp ./icons/out; mkdirp ./icons/optimized",
     "svgo": "svgo ./icons/raw/*.svg -o ./icons/optimized --config './.svgo.json'",
     "rename": "node rename.js",
     "build": "yarn clean && yarn svgo && yarn rename"
@@ -13,7 +13,8 @@
     "param-case": "^3.0.4",
     "@sindresorhus/transliterate": "^0.1.1",
     "mkdirp": "^1.0.4",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "pify": "^5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

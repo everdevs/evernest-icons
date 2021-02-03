@@ -1,28 +1,26 @@
 const path = require("path");
-const {readFile, writeFile} = require("fs");
+const pify = require("pify");
 const globby = require("globby");
-const { paramCase } = require ("param-case");
-const transliterate = require('@sindresorhus/transliterate');
+const { paramCase } = require("param-case");
+const transliterate = require("@sindresorhus/transliterate");
+
+const { readFile, writeFile } = pify(require("fs"));
 
 (async () => {
-	const paths = await globby(['./icons/optimized']);
-
-	console.log(paths);
-	paths.forEach(file => {
-		const {base} = path.parse(file)
-		const transliterated = transliterate(base)
-		const paramCased = paramCase(transliterated)
-		readFile(file, "utf-8", (error, content) => {
-			if (error) {
-				console.error(error)
-			}
-			console.log(`Writing: ./icons/out/${paramCased}`)
-			writeFile(`./icons/out/${paramCased}`, content, (error) => {
-				if (error) {
-					console.error(error)
-				}
-			});
-		} )
-
-	})
+	const paths = await globby(["./icons/optimized"]);
+	const pathD = {};
+	await Promise.all(
+		paths.map(async file => {
+			const { base } = path.parse(file);
+			const transliterated = transliterate(base);
+			const paramCased = paramCase(transliterated);
+			const content = await readFile(file, "utf-8");
+			const [, d] = /d="([\w\d\-\s\.]+)"/.exec(content);
+			pathD[paramCased] = d;
+			console.log(`Writing: ./icons/out/${paramCased}`);
+			return writeFile(`./icons/out/${paramCased}`, content);
+		})
+	);
+	console.log(`Writing: ./icons/path-d.json`);
+	writeFile(`./icons/path-d.json`, JSON.stringify(pathD, null, 4));
 })();
