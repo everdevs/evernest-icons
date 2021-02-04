@@ -1,58 +1,15 @@
-interface Icons {
-    "16": {
-        "360": string;
-        "academy": string;
-        "arrowRight": string;
-        "chevronDown": string;
-        "delete": string;
-        "info": string;
-        "list": string;
-        "location": string;
-        "logout": string;
-        "mail": string;
-        "map": string;
-        "mobileDevice": string;
-        "money": string;
-        "onboarding": string;
-        "person": string;
-        "star": string;
-    };
-    "24": {
-        "360": string;
-        "academy": string;
-        "arrowRight": string;
-        "chevronDown": string;
-        "delete": string;
-        "info": string;
-        "list": string;
-        "location": string;
-        "logout": string;
-        "mail": string;
-        "map": string;
-        "mobileDevice": string;
-        "money": string;
-        "onboarding": string;
-        "person": string;
-        "star": string;
-    };
-    "40": {
-        "360": string;
-        "academy": string;
-        "arrowRight": string;
-        "chevronDown": string;
-        "delete": string;
-        "info": string;
-        "list": string;
-        "location": string;
-        "logout": string;
-        "mail": string;
-        "map": string;
-        "mobileDevice": string;
-        "money": string;
-        "onboarding": string;
-        "person": string;
-        "star": string;
-    };
+
+export enum IconSize {
+	s = "16",
+	m = "24",
+	l = "40",
 }
-declare const icons: Icons;
-export {icons};
+export type IconName = "360" | "academy" | "arrowRight" | "chevronDown" | "delete" | "info" | "list" | "location" | "logout" | "mail" | "map" | "mobileDevice" | "money" | "onboarding" | "person" | "star"
+export type IconCollection = {
+	[key in IconName]: string;
+}
+export type Icons = {
+	[key in IconSize]: IconCollection;
+}
+export declare const icons: Icons
+export default icons
