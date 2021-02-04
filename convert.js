@@ -112,11 +112,22 @@ const createTypeDeclarations = (names) => {
 	// Create JavaScript
 	writeFile(
 		`./icons/path-d.js`,
-		`'use strict';\nObject.defineProperty(exports, '__esModule', { value: true });\n\nconst icons = ${JSON.stringify(
+		deindent(`
+		'use strict';
+		Object.defineProperty(exports, '__esModule', { value: true });
+		const IconSize = {
+			s: "16",
+			m: "24",
+			l: "40",
+		}
+		const icons = ${JSON.stringify(
 			pathD,
 			null,
 			4
-		)};\nexports.icons = icons\n`
+		)};
+		exports.icons = icons
+		exports.IconSize = IconSize
+		`)
 	).catch(err => {
 		console.error(err);
 	});
