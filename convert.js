@@ -5,6 +5,7 @@ const { camelCase } = require("camel-case");
 const transliterate = require("@sindresorhus/transliterate");
 const mkdirp = require("mkdirp");
 const SVGO = require("svgo");
+const deindent = require('de-indent')
 const svgoConfig = require("./svgo.json");
 
 const svgo = new SVGO(svgoConfig);
@@ -20,6 +21,30 @@ const writePaths = [
 	"./icons/path-d.d.ts",
 ];
 
+
+const createTypeDeclarations = (names) => {
+	const namesUnion = names.map(name=> `"${name}"`).join(" | ");
+	const typeDeclarations = deindent(`
+		export enum IconSize {
+			s = "16",
+			m = "24",
+			l = "40",
+		}
+		export type IconName = ${namesUnion}
+		export type IconCollection = {
+			[key in IconName]: string;
+		}
+		export type Icons = {
+			[key in IconSize]: IconCollection;
+		}
+		export declare const icons: Icons
+		export default icons
+	`);
+	return typeDeclarations;
+}
+
+
+
 (async () => {
 	// Delete all writePaths
 	await Promise.all(writePaths.map(writePath => rimraf(writePath)));
@@ -34,12 +59,12 @@ const writePaths = [
 		return 0
 	});
 	// Provide objects that will be filled with data
-	const types = { 16: {}, 24: {}, 40: {} };
+	const names = new Set([]);
 	const pathD = { 16: {}, 24: {}, 40: {} };
 	const files = { 16: {}, 24: {}, 40: {} };
 	// Fill the objects with the correct data
 	await Promise.all(
-		paths.map(async file => {
+		sortedPaths.map(async file => {
 			const { name } = path.parse(file);
 			const [, iconName, size] = /(.*) (\d+)px/.exec(name);
 			// Names should be camelcased
@@ -55,7 +80,7 @@ const writePaths = [
 				// Extract the d attribute from the path
 				const [, d] = / d="([\w\d\-\s.,]+)"/.exec(optimizedSVG);
 				// Add data to objects
-				types[size][camelCased] = "string";
+				names.add(camelCased);
 				pathD[size][camelCased] = d;
 				files[size][camelCased] = optimizedSVG;
 			} catch (err) {
@@ -98,13 +123,10 @@ const writePaths = [
 
 	// Create Type definitions
 	// replace quotes and commas for validity
+	const typeDeclarations = createTypeDeclarations(Array.from(names));
 	writeFile(
 		`./icons/path-d.d.ts`,
-		`interface Icons ${JSON.stringify(types, null, 4)
-			.replace(/"string"(,)?/g, "string;")
-			.replace(/}(,)?/g, "};")
-			.replace(/^};$/gm, "}")}\ndeclare const icons: Icons;\nexport {icons};`
-	).catch(err => {
+		typeDeclarations).catch(err => {
 		console.error(err);
 	});
 })();
