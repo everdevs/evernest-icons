@@ -5,7 +5,8 @@
   "module": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "build": "node convert.js"
+    "build": "node convert.js",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -19,6 +20,7 @@
     "pify": "^5.0.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2",
+    "standard-version": "^9.1.0",
     "svgo": "^1.3.2"
   }
 }
