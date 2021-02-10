@@ -4,7 +4,7 @@ export enum IconSize {
 	m = "24",
 	l = "40",
 }
-export type IconName = "360" | "academy" | "arrowRight" | "chevronDown" | "delete" | "info" | "list" | "location" | "logout" | "mail" | "map" | "mobileDevice" | "money" | "onboarding" | "person" | "star" | "facebook" | "instagram" | "linkedIn" | "xing"
+export type IconName = "360" | "academy" | "arrowRight" | "chevronDown" | "chevronLeft" | "chevronRight" | "chevronUp" | "delete" | "info" | "instagram" | "linkedIn" | "facebook" | "list" | "location" | "logout" | "mail" | "map" | "mobileDevice" | "money" | "onboarding" | "phonebook" | "person" | "star" | "world" | "xing"
 export type IconCollection = {
 	[key in IconName]: string;
 }
