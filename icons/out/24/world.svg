@@ -1,1 +1,1 @@
-<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:none;stroke:#1d1d1b;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><path class="cls-1" d="M20,12a8,8,0,1,1-8-8A8,8,0,0,1,20,12ZM11.77,4C9.46,4,7.58,7.58,7.58,12s1.88,8,4.19,8S16,16.42,16,12,14.08,4,11.77,4ZM4,9.29H20M4.86,14.71H19.14M12,4V20"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 11-8-8 8 8 0 018 8zm-8.23-8c-2.31 0-4.19 3.58-4.19 8s1.88 8 4.19 8S16 16.42 16 12s-1.92-8-4.23-8zM4 9.29h16M4.86 14.71h14.28M12 4v16"/></svg>
