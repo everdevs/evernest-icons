@@ -109,7 +109,7 @@ const createTypeDeclarations = names => {
 	const { 16: s, 24: m, 40: l } = iconNames;
 	const sMisses = m.filter(name => !s.includes(name));
 	const lMisses = m.filter(name => !l.includes(name));
-	const missingIcons = `# Missing icons\n\n\n## 16px\n\n${sMisses.map(miss => `* ${miss}`).join("\n")}\n\n\n##40px\n\n${lMisses.map(miss => `* ${miss}`).join("\n")}\n`;
+	const missingIcons = `# Missing icons\n\n\n## 16px\n\n${sMisses.map(miss => `* ${miss}`).join("\n")}\n\n\n## 40px\n\n${lMisses.map(miss => `* ${miss}`).join("\n")}\n`;
 	// Create JSON
 	writeFile(`./icons/missing.md`, missingIcons).catch(err => {
 		console.error(err);

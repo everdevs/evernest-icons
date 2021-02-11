@@ -10,7 +10,7 @@
 * xing
 
 
-##40px
+## 40px
 
 * facebook
 * instagram
