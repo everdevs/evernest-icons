@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/everdevs/evernest-icons/compare/v0.1.1...v0.1.2) (2021-02-15)
+
+
+### Features
+
+* add converted icons ([f3efe1b](https://github.com/everdevs/evernest-icons/commit/f3efe1bae4006b72488811df7d29c11fbef0cead))
+* add filter and map-layers ([bc5eb9d](https://github.com/everdevs/evernest-icons/commit/bc5eb9dfb2d23dd0b10d49636b879d81ab3f01c7))
+* add more icons ([43dc70c](https://github.com/everdevs/evernest-icons/commit/43dc70c764d00224a826d4dab02a0235b67054a4))
+* add more icons ([d8091e9](https://github.com/everdevs/evernest-icons/commit/d8091e90243f38ae304dcc2c0b1f4f2673f4ce38))
+* add more icons as source ([4d79eba](https://github.com/everdevs/evernest-icons/commit/4d79eba5119f68c77c4e401624df5ae987b05753))
+* optimize icons ([32f5058](https://github.com/everdevs/evernest-icons/commit/32f5058582b5f29ac8dddec2a015b8682aa768bb))
+
 ### [0.1.1](https://github.com/everdevs/evernest-icons/compare/v0.1.0...v0.1.1) (2021-02-08)
 
 
