@@ -5,7 +5,7 @@ const { camelCase } = require("camel-case");
 const transliterate = require("@sindresorhus/transliterate");
 const mkdirp = require("mkdirp");
 const SVGO = require("svgo");
-const deindent = require('de-indent')
+const deindent = require("de-indent");
 const svgoConfig = require("./svgo.json");
 
 const svgo = new SVGO(svgoConfig);
@@ -21,9 +21,8 @@ const writePaths = [
 	"./icons/path-d.d.ts",
 ];
 
-
-const createTypeDeclarations = (names) => {
-	const namesUnion = names.map(name=> `"${name}"`).join(" | ");
+const createTypeDeclarations = names => {
+	const namesUnion = names.map(name => `"${name}"`).join(" | ");
 	const typeDeclarations = deindent(`
 		export enum IconSize {
 			s = "16",
@@ -41,22 +40,20 @@ const createTypeDeclarations = (names) => {
 		export default icons
 	`);
 	return typeDeclarations;
-}
-
-
+};
 
 (async () => {
 	// Delete all writePaths
 	await Promise.all(writePaths.map(writePath => rimraf(writePath)));
-	const paths = await globby(["./icons/in/*.svg"])
+	const paths = await globby(["./icons/in/*.svg"]);
 	const sortedPaths = paths.sort((a, b) => {
 		if (a > b) {
-			return 1
+			return 1;
 		}
 		if (a < b) {
-			return -1
+			return -1;
 		}
-		return 0
+		return 0;
 	});
 	// Provide objects that will be filled with data
 	const names = new Set([]);
@@ -104,6 +101,19 @@ const createTypeDeclarations = (names) => {
 		});
 	});
 
+	// Find missing icons
+	const iconNames = Object.entries(pathD).reduce(
+		(previousValue, [key, value]) => ({ ...previousValue, [key]: Object.keys(value) }),
+		{}
+	);
+	const { 16: s, 24: m, 40: l } = iconNames;
+	const sMisses = m.filter(name => !s.includes(name));
+	const lMisses = m.filter(name => !l.includes(name));
+	const missingIcons = `# Missing icons\n\n\n## 16px\n\n${sMisses.map(miss => `* ${miss}`).join("\n")}\n\n\n## 40px\n\n${lMisses.map(miss => `* ${miss}`).join("\n")}\n`;
+	// Create JSON
+	writeFile(`./icons/missing.md`, missingIcons).catch(err => {
+		console.error(err);
+	});
 	// Create JSON
 	writeFile(`./icons/path-d.json`, JSON.stringify(pathD, null, 4)).catch(err => {
 		console.error(err);
@@ -120,11 +130,7 @@ const createTypeDeclarations = (names) => {
 			m: "24",
 			l: "40",
 		}
-		const icons = ${JSON.stringify(
-			pathD,
-			null,
-			4
-		)};
+		const icons = ${JSON.stringify(pathD, null, 4)};
 		exports.icons = icons
 		exports.IconSize = IconSize
 		`)
@@ -135,9 +141,7 @@ const createTypeDeclarations = (names) => {
 	// Create Type definitions
 	// replace quotes and commas for validity
 	const typeDeclarations = createTypeDeclarations(Array.from(names));
-	writeFile(
-		`./icons/path-d.d.ts`,
-		typeDeclarations).catch(err => {
+	writeFile(`./icons/path-d.d.ts`, typeDeclarations).catch(err => {
 		console.error(err);
 	});
 })();

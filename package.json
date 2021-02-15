@@ -8,6 +8,17 @@
     "build": "node convert.js",
     "release": "standard-version"
   },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
@@ -16,6 +27,7 @@
     "de-indent": "^1.0.2",
     "globby": "^11.0.2",
     "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
     "mkdirp": "^1.0.4",
     "pify": "^5.0.0",
     "prettier": "^2.2.1",

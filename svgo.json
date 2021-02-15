@@ -1,4 +1,36 @@
 {
   "full": true,
-  "plugins": [{ "removeAttrs": { "attrs": ["fill", "data-name"] } }]
+  "plugins": [
+
+    { "removeScriptElement": true },
+    { "removeStyleElement": true },
+    { "sortAttrs": true },
+    { "cleanupIDs": true },
+    { "prefixIds": true },
+    { "collapseGroups": true },
+    { "convertColors": true },
+    { "convertPathData": true },
+    { "minifyStyles": true },
+    { "removeComments": true },
+    { "removeDesc": true },
+    { "removeDimensions": true },
+    { "removeDoctype": true },
+    { "removeEditorsNSData": true },
+    { "removeEmptyAttrs": true },
+    { "removeEmptyContainers": true },
+    { "removeEmptyText": true },
+    { "removeMetadata": true },
+    { "removeTitle": true },
+    { "removeUnknownsAndDefaults": true },
+    { "removeUnusedNS": true },
+    { "removeUselessStrokeAndFill": true },
+    { "inlineStyles": true },
+    { "convertStyleToAttrs": true },
+    { "moveGroupAttrsToElems": true },
+    { "convertShapeToPath": true },
+    { "mergePaths": true },
+    {
+      "removeAttrs": { "attrs": ["fill", "data-name", "id", "class"] }
+    }
+  ]
 }
