@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/everdevs/evernest-icons/compare/v0.1.5...v0.1.6) (2021-06-10)
+
+
+### Features
+
+* add twitter icon ([513895b](https://github.com/everdevs/evernest-icons/commit/513895be39b32b08b15bdd5b3911344bc5a28135))
+
 ### [0.1.5](https://github.com/everdevs/evernest-icons/compare/v0.1.4...v0.1.5) (2021-04-27)
 
 
