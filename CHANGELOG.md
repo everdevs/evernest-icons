@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/everdevs/evernest-icons/compare/v0.1.6...v0.1.7) (2022-01-18)
+
+
+### Features
+
+* add number icons ([51921d4](https://github.com/everdevs/evernest-icons/commit/51921d43f836f1113101ce72777f39bf1575d1a4))
+
 ### [0.1.6](https://github.com/everdevs/evernest-icons/compare/v0.1.5...v0.1.6) (2021-06-10)
 
 
