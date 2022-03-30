@@ -16,6 +16,7 @@
 * instagram
 * linkedIn
 * plusBox
+* plus
 * xing
 
 
@@ -25,4 +26,5 @@
 * instagram
 * linkedIn
 * plusBox
+* plus
 * xing
