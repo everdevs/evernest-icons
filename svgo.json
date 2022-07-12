@@ -1,7 +1,6 @@
 {
   "full": true,
   "plugins": [
-
     { "removeScriptElement": true },
     { "removeStyleElement": true },
     { "sortAttrs": true },
