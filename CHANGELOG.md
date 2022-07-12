@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/everdevs/evernest-icons/compare/v0.1.9...v0.1.10) (2022-07-12)
+
+
+### Features
+
+* add `tip` icon ([c6f84f9](https://github.com/everdevs/evernest-icons/commit/c6f84f9f3c4aa9e2fa0accb0f8d8d6367c531a23))
+
 ### [0.1.9](https://github.com/everdevs/evernest-icons/compare/v0.1.8...v0.1.9) (2022-03-30)
 
 
