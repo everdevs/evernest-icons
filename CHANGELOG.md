@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/everdevs/evernest-icons/compare/v0.1.10...v0.1.11) (2022-07-19)
+
+
+### Features
+
+* add `buildingYear` icons ([2c490cd](https://github.com/everdevs/evernest-icons/commit/2c490cda65b05427329443b10832f472753505d7))
+
 ### [0.1.10](https://github.com/everdevs/evernest-icons/compare/v0.1.9...v0.1.10) (2022-07-12)
 
 
