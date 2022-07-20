@@ -1,6 +1,6 @@
 {
   "name": "evernest-icons",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
