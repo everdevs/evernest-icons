@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/everdevs/evernest-icons/compare/v0.1.15...v0.1.16) (2022-07-20)
+
+
+### Features
+
+* add filled star icon ([367e301](https://github.com/everdevs/evernest-icons/commit/367e30114d763a68b331e90eae820bdc9c69862d))
+
 ### [0.1.15](https://github.com/everdevs/evernest-icons/compare/v0.1.14...v0.1.15) (2022-07-20)
 
 
