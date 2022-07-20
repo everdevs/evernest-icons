@@ -4,7 +4,7 @@ export enum IconSize {
 	m = "24",
 	l = "40",
 }
-export type IconName = "2" | "1" | "360" | "3" | "4" | "7" | "6" | "5" | "8" | "9" | "academy" | "arrowRight" | "bell" | "buildingYear" | "building" | "chevronDown" | "chevronLeft" | "chevronRight" | "chevronUp" | "click" | "delete" | "filter" | "facebook" | "handshake" | "home" | "info" | "instagram" | "landArea" | "linkedIn" | "list" | "livingSpace" | "location" | "logout" | "mail" | "map" | "mapLayers" | "mobileDevice" | "money" | "onboarding" | "person" | "phone" | "phonebook" | "plot" | "plus" | "plusBox" | "rooms" | "star" | "tip" | "twitter" | "video" | "world" | "xing"
+export type IconName = "1" | "2" | "360" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "academy" | "arrowRight" | "bell" | "building" | "buildingYear" | "chevronDown" | "chevronRight" | "chevronLeft" | "chevronUp" | "click" | "delete" | "filter" | "handshake" | "home" | "facebook" | "info" | "landArea" | "list" | "livingSpace" | "instagram" | "location" | "linkedIn" | "logout" | "mail" | "map" | "mapLayers" | "mobileDevice" | "money" | "onboarding" | "person" | "phone" | "phonebook" | "plot" | "plusBox" | "rooms" | "star" | "starFilled" | "tip" | "plus" | "video" | "twitter" | "world" | "xing"
 export type IconCollection = {
 	[key in IconName]: string;
 }
