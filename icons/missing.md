@@ -12,6 +12,7 @@
 * 7
 * 8
 * 9
+* euro
 * facebook
 * instagram
 * linkedIn
@@ -22,6 +23,7 @@
 
 ## 40px
 
+* euro
 * facebook
 * instagram
 * linkedIn
