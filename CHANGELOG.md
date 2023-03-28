@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/everdevs/evernest-icons/compare/v0.1.17...v0.1.18) (2023-03-28)
+
+
+### Features
+
+* add 24px euro icon ([04499e8](https://github.com/everdevs/evernest-icons/commit/04499e8eb325542525800890eb3b9af5e5a4dec2))
+
 ### [0.1.17](https://github.com/everdevs/evernest-icons/compare/v0.1.16...v0.1.17) (2022-07-21)
 
 
