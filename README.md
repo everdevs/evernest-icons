@@ -1,3 +1,8 @@
+# ⚠️ Deprecated and archived. Please do not use this package.
+These icons were exclusively for evernest.com and have since been moved into the evernest.com repo over this superfluous complexity.
+
+---
+
 # evernest-icons
 - SVG icons for use in Evernest projects
 - The package is [published on npm](https://www.npmjs.com/package/evernest-icons) 
